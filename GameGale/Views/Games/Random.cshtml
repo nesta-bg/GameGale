@@ -1,4 +1,5 @@
 ﻿@model GameGale.Models.Game
+@*@using GameGale.Models*@
 
 @{
     ViewBag.Title = "Random";
@@ -7,6 +8,14 @@
 <h2>Random</h2>
 
 <h3>@Model.Name</h3>
+
+@*********ViewData Dictionary***********
+    <h2>@( ((Game)ViewData["Game"]).Name )</h2>
+*@
+
+@*********ViewBag************
+    <h2>@ViewBag.Game.Name</h2>
+*@
 
 
 

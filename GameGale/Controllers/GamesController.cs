@@ -18,10 +18,23 @@ namespace GameGale.Controllers
             //View() - helper mathod that derives from base Controller class
             return View(game);
 
+            //Where game object goes when we put it in the View(game)?
+            //It goes to this Model property
+            //var viewResult = new ViewResult();
+            //viewResult.ViewData.Model
+
             //return Content("Hello World!");
             //return HttpNotFound();
             //return new EmptyResult();
             //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
+
+            /*********ViewData Dictionary*************/
+            //ViewData["Game"] = game;
+            //return View();
+
+            /***********ViewBag********/
+            //ViewBag.Game = game;
+            //return View();
         }
 
         /************ACTION PARAMETERS*******************/
