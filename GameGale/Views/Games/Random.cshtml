@@ -10,7 +10,25 @@
 
 <h3>@*@Model.Name*@</h3>
 
-<h3>@Model.Game.Name</h3>
+@{
+    var className = Model.Customers.Count > 1 ? "popular" : null;
+}
+
+<h3 class=@className>@Model.Game.Name</h3>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No one has rented this movie before.</p>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
 
 @*********ViewData Dictionary***********
     <h2>@( ((Game)ViewData["Game"]).Name )</h2>
