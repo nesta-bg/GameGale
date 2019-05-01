@@ -59,6 +59,9 @@ namespace GameGale.Controllers
         //mvcaction4 tab
         //GET: games/released/2015/4 error
         //GET: games/released/2015/04 ok
+
+        //https://blogs.msdn.microsoft.com/webdev/2013/10/17/attribute-routing-in-asp-net-mvc-5/
+        [Route("games/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content(year + "/" + month);

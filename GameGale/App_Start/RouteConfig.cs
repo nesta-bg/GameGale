@@ -13,14 +13,17 @@ namespace GameGale
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //from most specific to most generic route
+            routes.MapMvcAttributeRoutes();
 
+            //from most specific to most generic route
+            /*
             routes.MapRoute(
                "GamesByReleaseDate",                                                        //name
                "games/released/{year}/{month}",                                             //url       
                new { controller = "Games", action = "ByReleaseDate" },                      //defaults
                new { year = @"2015|2016", month = @"\d{2}" }                                //constraints 
             );
+            */
 
             routes.MapRoute(
                 name: "Default",
