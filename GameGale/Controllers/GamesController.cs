@@ -55,5 +55,13 @@ namespace GameGale.Controllers
 
             return Content(String.Format("pageIndex ={0}&sortBy={1}", pageIndex, sortBy));
         }
+
+        //mvcaction4 tab
+        //GET: games/released/2015/4 error
+        //GET: games/released/2015/04 ok
+        public ActionResult ByReleaseDate(int year, int month)
+        {
+            return Content(year + "/" + month);
+        }
     }
 }
