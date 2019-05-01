@@ -1,5 +1,7 @@
 ﻿using GameGale.Models;
+using GameGale.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace GameGale.Controllers
@@ -16,7 +18,7 @@ namespace GameGale.Controllers
             var game = new Game() { Name = "Metro Exodus" };
             //return new ViewResult(game); 
             //View() - helper mathod that derives from base Controller class
-            return View(game);
+            //return View(game);
 
             //Where game object goes when we put it in the View(game)?
             //It goes to this Model property
@@ -35,6 +37,20 @@ namespace GameGale.Controllers
             /***********ViewBag********/
             //ViewBag.Game = game;
             //return View();
+
+            var customers = new List<Customer>()
+            {
+                new Customer { Name = "Customer 1" },
+                new Customer { Name = "Customer 2" }
+            };
+
+            var viewModel = new RandomGameViewModel()
+            {
+                Game = game,
+                Customers = customers
+            };
+
+            return View(viewModel);
         }
 
         /************ACTION PARAMETERS*******************/

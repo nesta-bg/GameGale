@@ -1,4 +1,5 @@
-﻿@model GameGale.Models.Game
+﻿@*@model GameGale.Models.Game*@
+@model GameGale.ViewModels.RandomGameViewModel
 @*@using GameGale.Models*@
 
 @{
@@ -7,7 +8,9 @@
 
 <h2>Random</h2>
 
-<h3>@Model.Name</h3>
+<h3>@*@Model.Name*@</h3>
+
+<h3>@Model.Game.Name</h3>
 
 @*********ViewData Dictionary***********
     <h2>@( ((Game)ViewData["Game"]).Name )</h2>
@@ -16,6 +19,3 @@
 @*********ViewBag************
     <h2>@ViewBag.Game.Name</h2>
 *@
-
-
-
