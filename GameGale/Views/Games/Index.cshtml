@@ -10,14 +10,16 @@
     <thead>
         <tr>
             <th>Game</th>
+            <th>Genre</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var game in Model)
         {
-            <tr>
-                <td>@game.Name</td>
-            </tr>
+        <tr>
+            <td>@Html.ActionLink(game.Name, "Details", "Games", new { id = game.Id }, null)</td>
+            <td>@game.Genre.Name</td>
+        </tr>
         }
     </tbody>
 </table>

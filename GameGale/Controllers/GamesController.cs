@@ -1,24 +1,39 @@
 ﻿using GameGale.Models;
-using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace GameGale.Controllers
 {
     public class GamesController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public GamesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         public ViewResult Index()
         {
-            var games = GetGames();
+            var games = _context.Games.Include(g => g.Genre).ToList();
+
             return View(games);
         }
 
-        private IEnumerable<Game> GetGames()
+        public ActionResult Details(int id)
         {
-            return new List<Game>
-            {
-                new Game { Id = 1, Name = "Control"},
-                new Game { Id = 2, Name = "Among the Sleep"}
-            };
+            var game = _context.Games.Include(g => g.Genre).SingleOrDefault(g => g.Id == id);
+
+            if (game == null)
+                return HttpNotFound();
+
+            return View(game);
         }
     }
 }
