@@ -1,7 +1,4 @@
-﻿@*Only for demonstration purposes*@
-@model GameGale.ViewModels.RandomGameViewModel
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -12,18 +9,12 @@
 
 </head>
 <body>
-    @*
-    Create as a partial view(without layout)
-    Without adding Model by default RandomGameViewModel will be added to the _NavBar partial view
-    We can add another model also
-    @Html.Partial("_NavBar", Model.Game)
-    *@
     @Html.Partial("_NavBar")
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - GameGale</p>
         </footer>
     </div>
 
