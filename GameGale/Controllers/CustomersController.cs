@@ -1,7 +1,7 @@
 ﻿using GameGale.Models;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace GameGale.Controllers
 {
@@ -11,7 +11,7 @@ namespace GameGale.Controllers
 
         public CustomersController()
         {
-            _context = new ApplicationDbContext(); 
+            _context = new ApplicationDbContext();
         }
 
         protected override void Dispose(bool disposing)
@@ -26,7 +26,7 @@ namespace GameGale.Controllers
             //var customers = _context.Customers;
 
             //Immediate Execution
-            var customers = _context.Customers.ToList();
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
             return View(customers);
         }
