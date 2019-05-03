@@ -33,4 +33,5 @@ namespace GameGale.Models
 [EmailAddress]
 [Url]
 [RegularExpression("...")]
+[Min18YearsIfAMember] custom validation -client side validation doesn't work, if you really need it use jquery.
 */
