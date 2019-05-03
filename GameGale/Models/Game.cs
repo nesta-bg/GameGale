@@ -25,6 +25,7 @@ namespace GameGale.Models
 
         [Required]
         [Display(Name = "Number In Stock")]
+        [Range(1, 20)]
         public byte NumberInStock { get; set; }
     }
 }

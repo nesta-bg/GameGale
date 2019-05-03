@@ -51,8 +51,19 @@ namespace GameGale.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Game game)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new GameFormViewModel(game)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+
+                return View("GameForm", viewModel);
+            }
+
             if (game.Id == 0)
             {
                 game.DateAdded = DateTime.Now;
@@ -83,10 +94,9 @@ namespace GameGale.Controllers
             var genres = _context.Genres.ToList();
             var game = _context.Games.SingleOrDefault(g => g.Id == id);
             
-            var viewModel = new GameFormViewModel
+            var viewModel = new GameFormViewModel(game)
             {
-                Genres = genres,
-                Game = game
+                Genres = genres
             };
 
             return View("GameForm", viewModel);
