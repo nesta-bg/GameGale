@@ -1,4 +1,4 @@
-﻿@model GameGale.ViewModels.NewCustomerViewModel
+﻿@model GameGale.ViewModels.CustomerFormViewModel
 
 @{
     /**/
@@ -8,7 +8,7 @@
 
 <h2>New Customer</h2>
 
-@using (Html.BeginForm("Create", "Customers"))
+@using (Html.BeginForm("Save", "Customers"))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Name)
@@ -16,17 +16,18 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Birthdate)
-        @Html.TextBoxFor(m => m.Customer.Birthdate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Customer.Birthdate, "{0:dd MMM yyyy}", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.MembershipTypeId)
+        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "", new { @class = "form-control" })
     </div>
     <div class=“checkbox”>
         <label>
             @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsletter)	Subscribed?
         </label>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.MembershipTypeId)
-        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "", new { @class = "form-control" })
-    </div>
+    @Html.HiddenFor(m => m.Customer.Id)
     <button type="submit" class="btn btn-primary">Save</button>
 }
 
