@@ -1,4 +1,6 @@
 ﻿using GameGale.Models;
+using GameGale.ViewModels;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -34,6 +36,60 @@ namespace GameGale.Controllers
                 return HttpNotFound();
 
             return View(game);
+        }
+
+        public ActionResult New()
+        {
+            var genres = _context.Genres.ToList();
+
+            var viewModel = new GameFormViewModel
+            {
+                Genres = genres
+            };
+
+            return View("GameForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Game game)
+        {
+            if (game.Id == 0)
+            {
+                game.DateAdded = DateTime.Now;
+                _context.Games.Add(game);
+            }
+            else
+            {
+                var gameInDb = _context.Games.Single(m => m.Id == game.Id);
+
+                //TryUpdateModel(gameInDb);
+                //TryUpdateModel(gameInDb, "", new string[] { "Name", "GenreId" });
+
+                //Mapper.Map(game, gameInDb);
+
+                gameInDb.Name = game.Name;
+                gameInDb.ReleaseDate = game.ReleaseDate;
+                gameInDb.GenreId = game.GenreId;
+                gameInDb.NumberInStock = game.NumberInStock;
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Games");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var genres = _context.Genres.ToList();
+            var game = _context.Games.SingleOrDefault(g => g.Id == id);
+            
+            var viewModel = new GameFormViewModel
+            {
+                Genres = genres,
+                Game = game
+            };
+
+            return View("GameForm", viewModel);
         }
     }
 }
