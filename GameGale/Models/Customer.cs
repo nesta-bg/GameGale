@@ -17,6 +17,7 @@ namespace GameGale.Models
 
         public byte MembershipTypeId { get; set; }
 
+        [Display(Name = "Date of Birth")]
         public DateTime? Birthdate { get; set; }
     }
 }
