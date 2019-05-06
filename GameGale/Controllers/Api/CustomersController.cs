@@ -2,8 +2,8 @@
 using GameGale.Dtos;
 using GameGale.Models;
 using System;
+using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web.Http;
 
 namespace GameGale.Controllers.Api
@@ -21,7 +21,10 @@ namespace GameGale.Controllers.Api
         public IHttpActionResult GetCustomers()
         {
             //We don't need () at the end of Mapper.Map because we only delegate to the method, we don't call it to execute immidiately. 
-            var customerDtos = _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            var customerDtos = _context.Customers
+                .Include(c => c.MembershipType)
+                .ToList()
+                .Select(Mapper.Map<Customer, CustomerDto>);
 
             return Ok(customerDtos);
         }
