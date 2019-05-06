@@ -23,13 +23,7 @@ namespace GameGale.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            //Deferred Execution(ef doesn't gonna query the db)
-            //var customers = _context.Customers;
-
-            //Immediate Execution
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-
-            return View(customers);
+            return View();
         }
 
         public ActionResult Details(int id)
