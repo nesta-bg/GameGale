@@ -23,9 +23,7 @@ namespace GameGale.Controllers
 
         public ViewResult Index()
         {
-            var games = _context.Games.Include(g => g.Genre).ToList();
-
-            return View(games);
+            return View();
         }
 
         public ActionResult Details(int id)

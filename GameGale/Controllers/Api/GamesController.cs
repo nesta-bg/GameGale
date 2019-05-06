@@ -2,11 +2,9 @@
 using GameGale.Dtos;
 using GameGale.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 
 namespace GameGale.Controllers.Api
 {
@@ -23,7 +21,10 @@ namespace GameGale.Controllers.Api
         public IHttpActionResult GetGames()
         {
             //ne treba () na kraju mapper.Map jer samo delegiramo na metod, ne pozivamo ga da se odmah izvrsi
-            var gameDtos = _context.Games.ToList().Select(Mapper.Map<Game, GameDto>);
+            var gameDtos = _context.Games
+                .Include(g => g.Genre)
+                .ToList()
+                .Select(Mapper.Map<Game, GameDto>);
 
             return Ok(gameDtos);
         }
