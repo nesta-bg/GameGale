@@ -41,8 +41,9 @@ namespace GameGale.Controllers.Api
         }
 
         //POST /api/games
-        [HttpPost]
         //public Game PostGame(Game game) //ne treba [HttpPost]
+        [HttpPost]
+        [Authorize(Roles = RoleName.CanManageGames)]
         public IHttpActionResult CreateGame(GameDto gameDto)
         {
             if (!ModelState.IsValid)
@@ -61,6 +62,7 @@ namespace GameGale.Controllers.Api
         //PUT /api/games/1
         //return type could be Game or void
         [HttpPut]
+        [Authorize(Roles = RoleName.CanManageGames)]
         public IHttpActionResult UpdateGame(int id, GameDto gameDto)
         {
             if (!ModelState.IsValid)
@@ -81,6 +83,7 @@ namespace GameGale.Controllers.Api
 
         //DELETE /api/games/1
         [HttpDelete]
+        [Authorize(Roles = RoleName.CanManageGames)]
         public IHttpActionResult DeleteGame(int id)
         {
             var gameInDb = _context.Games.SingleOrDefault(g => g.Id == id);

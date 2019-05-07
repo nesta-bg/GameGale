@@ -23,7 +23,10 @@ namespace GameGale.Controllers
 
         public ViewResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageGames))
+                return View("List");
+            
+            return View("ReadOnlyList");
         }
 
         public ActionResult Details(int id)
@@ -36,6 +39,7 @@ namespace GameGale.Controllers
             return View(game);
         }
 
+        [Authorize(Roles = RoleName.CanManageGames)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
@@ -50,6 +54,7 @@ namespace GameGale.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageGames)]
         public ActionResult Save(Game game)
         {
             if (!ModelState.IsValid)
@@ -87,6 +92,7 @@ namespace GameGale.Controllers
             return RedirectToAction("Index", "Games");
         }
 
+        [Authorize(Roles = RoleName.CanManageGames)]
         public ActionResult Edit(int id)
         {
             var genres = _context.Genres.ToList();
