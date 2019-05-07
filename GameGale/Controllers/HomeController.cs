@@ -1,10 +1,24 @@
 ﻿using System.Web.Mvc;
+using System.Web.UI;
 
 namespace GameGale.Controllers
 {
     [AllowAnonymous]
+    //[OutputCache(Duration = 50)]
     public class HomeController : Controller
     {
+        //we can cache date on the server or on the client.
+        //if this view is specific to a given user we put it on the client, otherwise we put it on the server.
+        //[OutputCache(Duration = 50, Location = OutputCacheLocation.Server)]
+
+        //if this action takes one or more parameters and output changes based on the value of those parameters we can cache each output separately.
+        //[OutputCache(Duration = 50, Location = OutputCacheLocation.Server, VaryByParam = "genre")]
+
+        //if we have multiple parameters we can use * so for any combination of those parameters we have a different version of the cache.
+        //[OutputCache(Duration = 50, Location = OutputCacheLocation.Server, VaryByParam = "*")]
+
+        //how to disable caching.
+        //[OutputCache(Duration = 0, VaryByParam = "*", NoStore = true)]
         public ActionResult Index()
         {
             return View();

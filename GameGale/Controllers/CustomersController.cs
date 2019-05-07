@@ -3,6 +3,8 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Data.Entity;
 using GameGale.ViewModels;
+using System.Runtime.Caching;
+using System.Collections.Generic;
 
 namespace GameGale.Controllers
 {
@@ -23,6 +25,14 @@ namespace GameGale.Controllers
         // GET: Customers
         public ActionResult Index()
         {
+            /* Data Caching example
+            if (MemoryCache.Default["Genres"] == null)
+            {
+                MemoryCache.Default["Genres"] = _context.Genres.ToList();
+            }
+            var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
+            */
+
             return View();
         }
 
