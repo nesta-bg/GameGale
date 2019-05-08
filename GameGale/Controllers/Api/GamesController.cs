@@ -18,11 +18,17 @@ namespace GameGale.Controllers.Api
         }
 
         //GET /api/games
-        public IHttpActionResult GetGames()
+        public IHttpActionResult GetGames(string query = null)
         {
             //ne treba () na kraju mapper.Map jer samo delegiramo na metod, ne pozivamo ga da se odmah izvrsi
-            var gameDtos = _context.Games
+            var gamesQuery = _context.Games
                 .Include(g => g.Genre)
+                .Where(g => g.NumberAvailable > 0);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                gamesQuery = gamesQuery.Where(g => g.Name.Contains(query));
+                
+            var gameDtos = gamesQuery 
                 .ToList()
                 .Select(Mapper.Map<Game, GameDto>);
 

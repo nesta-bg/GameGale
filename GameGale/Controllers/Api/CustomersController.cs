@@ -18,11 +18,16 @@ namespace GameGale.Controllers.Api
         }
 
         //GET /api/customers
-        public IHttpActionResult GetCustomers()
+        public IHttpActionResult GetCustomers(string query = null)
         {
             //We don't need () at the end of Mapper.Map because we only delegate to the method, we don't call it to execute immidiately. 
-            var customerDtos = _context.Customers
-                .Include(c => c.MembershipType)
+            var customersQuery = _context.Customers
+                .Include(c => c.MembershipType);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                customersQuery = customersQuery.Where(c => c.Name.Contains(query));
+
+            var customerDtos = customersQuery
                 .ToList()
                 .Select(Mapper.Map<Customer, CustomerDto>);
 
