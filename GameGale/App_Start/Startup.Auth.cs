@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using GameGale.Models;
+using System.Configuration;
 
 namespace GameGale
 {
@@ -55,8 +56,8 @@ namespace GameGale
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "123456",
-               appSecret: "abcdef");
+               appId: ConfigurationManager.AppSettings["FacebookAppId"],
+               appSecret: ConfigurationManager.AppSettings["FacebookAppSecret"]);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
