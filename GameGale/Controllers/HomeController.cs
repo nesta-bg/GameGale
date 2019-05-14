@@ -1,5 +1,5 @@
-﻿using System.Web.Mvc;
-using System.Web.UI;
+﻿using System;
+using System.Web.Mvc;
 
 namespace GameGale.Controllers
 {
@@ -26,9 +26,14 @@ namespace GameGale.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            //simulating unhandled exception. We are getting the details about the exception.
+            //But we want Custom Error Page: Shared/Error.cshtml
+            //We go to Web.config
+            throw new Exception();
 
-            return View();
+            //ViewBag.Message = "Your application description page.";
+
+            //return View();
         }
 
         public ActionResult Contact()

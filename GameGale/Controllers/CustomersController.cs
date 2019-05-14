@@ -100,6 +100,11 @@ namespace GameGale.Controllers
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
+            // home/about2 (asp.net framework 404 page)
+            // customers/edit/800 (iis web server 404 page)
+            // image.gif (static resource: iis web server 404 page)
+
+            // here there is no exception but HttpNotFound() sets the status code to 404
             if (customer == null)
                 return HttpNotFound();
 
