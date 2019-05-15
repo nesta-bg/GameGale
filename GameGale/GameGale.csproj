@@ -285,6 +285,10 @@
     <Compile Include="Migrations\201905080916511_AddNumberAvailableToGamesTable.Designer.cs">
       <DependentUpon>201905080916511_AddNumberAvailableToGamesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905151712433_CreateTableAndStoredProceduresForElmah.cs" />
+    <Compile Include="Migrations\201905151712433_CreateTableAndStoredProceduresForElmah.Designer.cs">
+      <DependentUpon>201905151712433_CreateTableAndStoredProceduresForElmah.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -621,6 +625,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905080916511_AddNumberAvailableToGamesTable.resx">
       <DependentUpon>201905080916511_AddNumberAvailableToGamesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905151712433_CreateTableAndStoredProceduresForElmah.resx">
+      <DependentUpon>201905151712433_CreateTableAndStoredProceduresForElmah.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
