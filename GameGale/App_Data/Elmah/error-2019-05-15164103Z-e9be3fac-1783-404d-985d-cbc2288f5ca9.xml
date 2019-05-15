@@ -1,0 +1,171 @@
+﻿<error errorId="e9be3fac-1783-404d-985d-cbc2288f5ca9" host="DESKTOP-UDLF7RM" type="System.Exception" message="Exception of type 'System.Exception' was thrown." source="GameGale" detail="System.Exception: Exception of type 'System.Exception' was thrown.&#xD;&#xA;   at GameGale.Controllers.HomeController.About() in C:\Users\Shone\source\repos\GameGale\GameGale\Controllers\HomeController.cs:line 33&#xD;&#xA;   at lambda_method(Closure , ControllerBase , Object[] )&#xD;&#xA;   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)&#xD;&#xA;   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c.&lt;BeginInvokeSynchronousActionMethod&gt;b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass11_0.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__0()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass11_2.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__2()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass7_0.&lt;BeginInvokeActionMethodWithFilters&gt;b__1(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass3_6.&lt;BeginInvokeAction&gt;b__4()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass3_1.&lt;BeginInvokeAction&gt;b__1(IAsyncResult asyncResult)" user="admin@gamegale.com" time="2019-05-15T16:41:03.0378402Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:close&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.9&#xD;&#xA;HTTP_COOKIE:glimpsePolicy=; __RequestVerificationToken=ox8dAz8Giu81-zasBB2FhKh5YbWw60RgWHWGdNWduyIAcWsEsrop7xabr94I_pSNvJD5zK6R7ZvMTBt5HbUT9zqcniGypuQxEZGusFoeyEY1; .AspNet.ApplicationCookie=IQaf0A9zmQJouQDHwhTXzs4L8muY9bosMo3gBkdMco1tVxetnnelBGHpVugkoPjDVuuXu40n2uz0uXJTjRW2aDK93037jozP_6mAMa7NU5ynDiqdhM_IAbEGfOysuks750FYY_lVUh7veLuCKj1NGzFBw71vXZlzjKdBMmHuF9WH553YWPRRRx4vFerHlN2W4Cu9yp9VbG3F4ppPMdTMtoO9l4pTaRW4tiZ6RGucPnug_S1SVn40D8Y0EmzrZTwyuWreNvC7SOt-M6UyV8mmfl6N6OIWrDJKtZGyxgA_Erf-bs9CTD0VNMtvv7ZhZEVH2z8naOv5oorzWl3n1VK0nz8UUhmWUd5xVLO6yCeROzpjG0S5WnEKNbUz62Y6upQz3rZuHl1BntFD1sE7orAjcboiMET-GA52QqvNi5W91sMn16VWnK3_wCCcedKt9ZUQQ7_nO0Tu0yEsXRzYlfAKyzGU0bxNNKUef8PNR62fCLB0fshSf20OEuerHNsIPCpwEfvNPqwZdBQZgmrORz887Q&#xD;&#xA;HTTP_HOST:localhost:44357&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;HTTP_PURPOSE:prefetch&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: close&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: en-US,en;q=0.9&#xD;&#xA;Cookie: glimpsePolicy=; __RequestVerificationToken=ox8dAz8Giu81-zasBB2FhKh5YbWw60RgWHWGdNWduyIAcWsEsrop7xabr94I_pSNvJD5zK6R7ZvMTBt5HbUT9zqcniGypuQxEZGusFoeyEY1; .AspNet.ApplicationCookie=IQaf0A9zmQJouQDHwhTXzs4L8muY9bosMo3gBkdMco1tVxetnnelBGHpVugkoPjDVuuXu40n2uz0uXJTjRW2aDK93037jozP_6mAMa7NU5ynDiqdhM_IAbEGfOysuks750FYY_lVUh7veLuCKj1NGzFBw71vXZlzjKdBMmHuF9WH553YWPRRRx4vFerHlN2W4Cu9yp9VbG3F4ppPMdTMtoO9l4pTaRW4tiZ6RGucPnug_S1SVn40D8Y0EmzrZTwyuWreNvC7SOt-M6UyV8mmfl6N6OIWrDJKtZGyxgA_Erf-bs9CTD0VNMtvv7ZhZEVH2z8naOv5oorzWl3n1VK0nz8UUhmWUd5xVLO6yCeROzpjG0S5WnEKNbUz62Y6upQz3rZuHl1BntFD1sE7orAjcboiMET-GA52QqvNi5W91sMn16VWnK3_wCCcedKt9ZUQQ7_nO0Tu0yEsXRzYlfAKyzGU0bxNNKUef8PNR62fCLB0fshSf20OEuerHNsIPCpwEfvNPqwZdBQZgmrORz887Q&#xD;&#xA;Host: localhost:44357&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36&#xD;&#xA;upgrade-insecure-requests: 1&#xD;&#xA;purpose: prefetch&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\Shone\source\repos\GameGale\GameGale\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="admin@gamegale.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="admin@gamegale.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="256" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="2048" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="CN=localhost" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="CN=localhost" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="on" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="256" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="2048" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="CN=localhost" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="CN=localhost" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/home/about" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\Shone\source\repos\GameGale\GameGale\home\about" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="53941" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/home/about" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="44357" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="1" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/home/about" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="close" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.9" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="glimpsePolicy=; __RequestVerificationToken=ox8dAz8Giu81-zasBB2FhKh5YbWw60RgWHWGdNWduyIAcWsEsrop7xabr94I_pSNvJD5zK6R7ZvMTBt5HbUT9zqcniGypuQxEZGusFoeyEY1; .AspNet.ApplicationCookie=IQaf0A9zmQJouQDHwhTXzs4L8muY9bosMo3gBkdMco1tVxetnnelBGHpVugkoPjDVuuXu40n2uz0uXJTjRW2aDK93037jozP_6mAMa7NU5ynDiqdhM_IAbEGfOysuks750FYY_lVUh7veLuCKj1NGzFBw71vXZlzjKdBMmHuF9WH553YWPRRRx4vFerHlN2W4Cu9yp9VbG3F4ppPMdTMtoO9l4pTaRW4tiZ6RGucPnug_S1SVn40D8Y0EmzrZTwyuWreNvC7SOt-M6UyV8mmfl6N6OIWrDJKtZGyxgA_Erf-bs9CTD0VNMtvv7ZhZEVH2z8naOv5oorzWl3n1VK0nz8UUhmWUd5xVLO6yCeROzpjG0S5WnEKNbUz62Y6upQz3rZuHl1BntFD1sE7orAjcboiMET-GA52QqvNi5W91sMn16VWnK3_wCCcedKt9ZUQQ7_nO0Tu0yEsXRzYlfAKyzGU0bxNNKUef8PNR62fCLB0fshSf20OEuerHNsIPCpwEfvNPqwZdBQZgmrORz887Q" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:44357" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+    <item name="HTTP_PURPOSE">
+      <value string="prefetch" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="glimpsePolicy">
+      <value string="" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="ox8dAz8Giu81-zasBB2FhKh5YbWw60RgWHWGdNWduyIAcWsEsrop7xabr94I_pSNvJD5zK6R7ZvMTBt5HbUT9zqcniGypuQxEZGusFoeyEY1" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="IQaf0A9zmQJouQDHwhTXzs4L8muY9bosMo3gBkdMco1tVxetnnelBGHpVugkoPjDVuuXu40n2uz0uXJTjRW2aDK93037jozP_6mAMa7NU5ynDiqdhM_IAbEGfOysuks750FYY_lVUh7veLuCKj1NGzFBw71vXZlzjKdBMmHuF9WH553YWPRRRx4vFerHlN2W4Cu9yp9VbG3F4ppPMdTMtoO9l4pTaRW4tiZ6RGucPnug_S1SVn40D8Y0EmzrZTwyuWreNvC7SOt-M6UyV8mmfl6N6OIWrDJKtZGyxgA_Erf-bs9CTD0VNMtvv7ZhZEVH2z8naOv5oorzWl3n1VK0nz8UUhmWUd5xVLO6yCeROzpjG0S5WnEKNbUz62Y6upQz3rZuHl1BntFD1sE7orAjcboiMET-GA52QqvNi5W91sMn16VWnK3_wCCcedKt9ZUQQ7_nO0Tu0yEsXRzYlfAKyzGU0bxNNKUef8PNR62fCLB0fshSf20OEuerHNsIPCpwEfvNPqwZdBQZgmrORz887Q" />
+    </item>
+  </cookies>
+</error>
