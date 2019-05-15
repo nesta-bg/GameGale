@@ -24,6 +24,7 @@ namespace GameGale.Controllers
             return View();
         }
 
+        // /elmah - to see the error details
         public ActionResult About()
         {
             //simulating unhandled exception. We are getting the details about the exception.
