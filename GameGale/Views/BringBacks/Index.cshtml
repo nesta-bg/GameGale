@@ -1,0 +1,145 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Bring Back Form";
+}
+
+<h2>Bring Back Form</h2>
+
+<form id="bringback">
+    <div id="custdiv" class="form-group">
+        <label>Customer</label>
+        <div class="tt-container">
+            <input id="customer" name="customer" data-rule-validCustomer="true" required type="text" value="" class="form-control" />
+        </div>
+    </div>
+
+    <div id="custdetails"></div>
+
+    <div class="row">
+        <div class="col-md-8 col-sm-4">
+            <table id="rentedgames" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Date Rented</th>
+                        <th>Bring Back</th>
+                    </tr>
+                <thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <button id="sub" class="btn btn-primary">Submit</button>
+    <div id="bball"></div>
+</form>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            var vm = {
+            };
+
+            var customers = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/api/customers?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+            $('#customer').typeahead({
+                minLength: 3,
+                highlight: true,
+            }, {
+                    name: 'customers',
+                    display: 'name',
+                    source: customers
+                }).on("typeahead:select", function (e, customer) {
+                    vm.customerId = customer.id;
+                    $("#rentedgames tbody").empty();
+                    $("#custdetails").empty();
+                    $("#bball").empty();
+                });
+
+
+            $.validator.addMethod("validCustomer", function () {
+                return vm.customerId && vm.customerId !== 0;
+            }, "Please select a valid customer.");
+
+            var validator = $("#bringback").validate({
+                submitHandler: function () {
+
+                    $.ajax({
+                        url: "/api/newRentals/" + vm.customerId,
+                        method: "get"
+                    })
+                        .done(function (results) {
+
+                            $("#custdetails").append("<p><button class='btn btn-primary aCust'>Another Customer</button></p>");
+
+                            if (results.length == 0)
+                                $("#custdetails").append("<p><h3>" + $("#customer").val() + " - there are no rented games.<h3></p>");
+                            else {
+                                $("#custdetails").append("<p><h3>" + $("#customer").val() + " - rented games.<h3></p>");
+                                $("#bball").append("<button class='btn btn-primary js-deleteAll'>Bring Back All Games</button>");
+                            }
+
+                            $("#custdiv").empty();
+
+                            for (var i = 0; i < results.length; i++) {
+                                $("#rentedgames tbody").append("<tr><td>" + results[i].game.name + "</td><td>" + results[i].dateRented + "</td><td><button class='btn-link js-delete' data-rentedgame-id=" + results[i].id + ">Bring Back</button></td><tr>");
+                            }
+
+                            $("#sub").hide();
+                            validator.resetForm();
+                        })
+                        .fail(function () {
+                            toastr.error("Something unexpected happened.");
+                        });
+                    return false;
+                }
+            });
+
+            $("#bringback").on("click", ".js-delete", function (e) {
+                e.preventDefault();
+                var button = $(this);
+                bootbox.confirm("Are you sure you want to bring back this rented game?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/newrentals/" + button.attr("data-rentedgame-id"),
+                            method: "PUT",
+                            success: function () {
+                                button.parents("tr").remove();
+                            }
+                        });
+                    }
+                });
+            });
+
+            $("#bringback").on("click", ".js-deleteAll", function (e) {
+                e.preventDefault();
+                bootbox.confirm("Are you sure you want to bring back all rented games for this customer?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/newrentals",
+                            method: "PUT",
+                            data: vm,
+                            success: function () {
+                                $("#rentedgames tbody").empty();
+                                $("#bball").empty();
+                            }
+                        });
+                    }
+                });
+            });
+
+            $("#bringback").on("click", ".aCust", function (e) {
+                window.location.reload(true);
+            });
+        });
+    </script>
+}

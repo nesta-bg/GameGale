@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
+using AutoMapper;
 
 namespace GameGale.Controllers.Api
 {
@@ -16,6 +18,18 @@ namespace GameGale.Controllers.Api
         public NewRentalsController()
         {
             _context = new ApplicationDbContext();
+        }
+
+        //GET /api/newrentals/1
+        public IHttpActionResult GetNewRentals(int Id)
+        {
+            var rentals = _context.Rentals
+                .Include(r => r.Game)
+                .Where(r => r.Customer.Id == Id && r.DateReturned == null)
+                .ToList()
+                .Select(Mapper.Map<Rental, RentalDto>);
+
+            return Ok(rentals);
         }
 
         /* POSTMAN TEST
@@ -67,6 +81,45 @@ namespace GameGale.Controllers.Api
                 };
 
                 _context.Rentals.Add(rental);
+            }
+
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
+        //PUT /api/newrentals/1
+        [HttpPut]
+        public IHttpActionResult ReturnRental(int id)
+        {
+            var rental = _context.Rentals
+                .Include(r => r.Game)
+                .SingleOrDefault(r => r.Id == id);
+
+            if (rental == null)
+                return NotFound();
+
+            rental.Game.NumberAvailable++;
+            rental.DateReturned = DateTime.Now;
+
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
+        //PUT /api/newrentals
+        [HttpPut]
+        public IHttpActionResult ReturnAllRentalsForCustomer(NewRentalDto newRentalDto)
+        {
+            var allRentals = _context.Rentals
+                .Include(r => r.Game)
+                .Where(r => r.Customer.Id == newRentalDto.CustomerId && r.DateReturned == null)
+                .ToList();
+
+            foreach (var rental in allRentals)
+            {
+                rental.Game.NumberAvailable++;
+                rental.DateReturned = DateTime.Now;
             }
 
             _context.SaveChanges();

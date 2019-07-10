@@ -13,6 +13,7 @@ namespace GameGale.App_Start
             Mapper.CreateMap<Game, GameDto>();
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
             Mapper.CreateMap<Genre, GenreDto>();
+            Mapper.CreateMap<Rental, RentalDto>();
 
             //Dto to Domain
             //UpdateCustomer throws the exception:
